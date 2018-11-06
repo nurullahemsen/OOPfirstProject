@@ -2,9 +2,13 @@ package com.dankSide;
 
 public class Circle implements Shape{
     double radius;
+    private double x;
+    private double y;
 
-    public Circle(double radius){
+    public Circle(double radius,double x, double y){
         this.radius = radius;
+        this.x = x;
+        this.y = y;
     }
 
     @Override

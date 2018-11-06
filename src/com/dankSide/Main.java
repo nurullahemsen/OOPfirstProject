@@ -1,27 +1,55 @@
 package com.dankSide;
 
+
+
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.NoSuchElementException;
+import java.util.Scanner;
 
 public class Main {
 
+    static Shape[] array = new Shape[100];
+
     public static void main(String[] args) {
-        System.out.println(new Rectangle(5,2));
-        //String[] sarr = {"hello"," world!"};
-        String[] sarr = new String[50];
-        sarr[25] = "hello";
-        sarr[30] = " world!";
-        sarr[49] = "...";
-        ArrayIterator iter = new ArrayIterator<String>(sarr);
-//        while (iter.hasNext()) System.out.print(iter.next());
-        //System.out.println(sarr[3]);
-        System.out.print(iter.next());
-        System.out.print(iter.next());
-        System.out.print(iter.next());
-        try {
-            System.out.print(iter.next());
-        }catch (NoSuchElementException e){
-            System.out.println("cacthed");
+
+        try{
+            readTxt();
+        }catch (FileNotFoundException e){
+            System.out.println("exception");
         }
-        System.out.println(iter.hasNext());
+        for (int i = 0; i < 5; i++) System.out.println(array[i]);
+    }
+
+    public static void readTxt() throws FileNotFoundException {
+        String[] s;
+        int index = 0;
+        Scanner sc = new Scanner(new File("Shapes.txt"));
+        while (sc.hasNextLine()){
+            s = sc.nextLine().split(" ");
+            if(s[0].equals("Rectangle")){
+                double[] coordinates = getCoordinates(s[1]);
+                array[index++] = new Rectangle(Double.parseDouble(s[2]),
+                        Double.parseDouble(s[3]),coordinates[0],coordinates[1]);
+            }
+            else if(s[0].equals("Square")){
+                double[] coordinates = getCoordinates(s[1]);
+                array[index++] = new Square(Double.parseDouble(s[2]),coordinates[0],coordinates[1]);
+            }
+            else if(s[0].equals("Circle")){
+                double[] coordinates = getCoordinates(s[1]);
+                array[index++] = new Circle(Double.parseDouble(s[2]),coordinates[0],coordinates[1]);
+            }
+        }
+    }
+    private static double[] getCoordinates(String s){
+        double[] coordinates = new double[2];
+        String newString = "";
+        for(int i = 1; i < s.length() - 1; i++){
+            newString = newString + s.charAt(i);
+        }
+        coordinates[0] = Double.parseDouble(newString.split(",")[0]);
+        coordinates[1] = Double.parseDouble(newString.split(",")[1]);
+        return coordinates;
     }
 }

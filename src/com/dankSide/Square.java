@@ -2,8 +2,8 @@ package com.dankSide;
 
 public class Square extends Rectangle{
 
-    public Square(double width){
-        super(width,width);
+    public Square(double width,double x, double y){
+        super(width,width,x,y);
     }
 
     @Override
