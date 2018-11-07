@@ -1,10 +1,7 @@
 package com.dankSide;
 
-
-
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Main {
@@ -14,14 +11,15 @@ public class Main {
     public static void main(String[] args) {
 
         try{
-            readTxt();
+            readText();
         }catch (FileNotFoundException e){
             System.out.println("exception");
         }
-        for (int i = 0; i < 5; i++) System.out.println(array[i]);
+        ArrayIterator<Shape> iter = new ArrayIterator<>(array);
+        while(iter.hasNext()) System.out.println(iter.next());
     }
 
-    public static void readTxt() throws FileNotFoundException {
+    public static void readText() throws FileNotFoundException {
         String[] s;
         int index = 0;
         Scanner sc = new Scanner(new File("Shapes.txt"));

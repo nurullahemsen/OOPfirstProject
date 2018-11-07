@@ -42,7 +42,7 @@ public class Rectangle implements Shape{
 
     @Override
     public String toString() {
-        return String.format("Rectangle width = %.2f height = %.2f area = %.2f perimeter %.2f",
-                this.width,this.height,this.calculateArea(),this.calculatePerimeter());
+        return String.format("Rectangle(%.0f, %.0f) width = %.2f height = %.2f area = %.2f perimeter %.2f",
+                this.x,this.y,this.width,this.height,this.calculateArea(),this.calculatePerimeter());
     }
 }

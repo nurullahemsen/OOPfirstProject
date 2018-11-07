@@ -23,7 +23,7 @@ public class Circle implements Shape{
 
     @Override
     public String toString() {
-        return String.format("Circle radius = %.2f area = %.2f perimeter %.2f",
-                this.radius,this.calculateArea(),this.calculatePerimeter());
+        return String.format("Circle(%.0f, %.0f) radius = %.2f area = %.2f perimeter %.2f",
+                this.x,this.y,this.radius,this.calculateArea(),this.calculatePerimeter());
     }
 }

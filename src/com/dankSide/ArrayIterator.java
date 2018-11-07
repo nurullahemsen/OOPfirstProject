@@ -14,7 +14,32 @@ public class ArrayIterator<E> implements Iterator<E> {
         this.size = arr.length;
     }
 
+    public E[] getArr() {
+        return arr;
+    }
+
+    public void setArr(E[] arr) {
+        this.arr = arr;
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
     private void nextItem(){
+
         E instance =  arr[index];
         if (instance != null) return;
         else while(++index < size){
