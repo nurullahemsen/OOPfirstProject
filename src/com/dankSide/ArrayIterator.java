@@ -57,11 +57,12 @@ public class ArrayIterator<E> implements Iterator<E> {
 
     @Override
     public boolean hasNext() {
-        if (index == size) return false;
-        E instance = arr[index];
+        int relativeIndex = this.index;
+        if (relativeIndex == size) return false;
+        E instance = arr[relativeIndex];
         if (instance == null){
-            while(++index < size){
-                instance = arr[index];
+            while(++relativeIndex < size){
+                instance = arr[relativeIndex];
                 if (instance != null) return true;
             }
             return false;

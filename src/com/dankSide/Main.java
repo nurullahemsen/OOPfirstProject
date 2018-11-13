@@ -4,6 +4,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+/**
+ * Created by Nurullah EMSEN
+ *            Elifnaz ÖKLÜ
+ *            Oğuzhan KATI
+ */
+
 public class Main {
 
     static Shape[] array = new Shape[100];
