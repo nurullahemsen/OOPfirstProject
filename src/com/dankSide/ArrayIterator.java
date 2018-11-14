@@ -39,7 +39,7 @@ public class ArrayIterator<E> implements Iterator<E> {
     }
 
     private void nextItem(){
-
+        if (index == size) return;
         E instance =  arr[index];
         if (instance != null) return;
         else while(++index < size){
@@ -49,8 +49,8 @@ public class ArrayIterator<E> implements Iterator<E> {
     }
 
     public E next(){
-        if (index == size) throw new NoSuchElementException("No next item avaliable");
         nextItem();
+        if (index == size) throw new NoSuchElementException("No next item avaliable");
         E instance =  arr[index++];
         return instance;
     }
